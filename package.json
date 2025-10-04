@@ -1,0 +1,20 @@
+{
+  "name": "admin-backend-planhub",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/ADARIYA0/admin-backend-planhub#readme",
+  "bugs": {
+    "url": "https://github.com/ADARIYA0/admin-backend-planhub/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ADARIYA0/admin-backend-planhub.git"
+  },
+  "license": "ISC",
+  "author": "ADARIYA0",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
