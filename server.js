@@ -1,4 +1,5 @@
 require('dotenv').config();
+const { verifyCorsConfig } = require('./src/config/corsOption');
 const app = require('./app');
 const logger = require('./src/utils/logger');
 
@@ -9,6 +10,8 @@ let server;
 
 (async () => {
     try {
+        verifyCorsConfig();
+
         server = app.listen(PORT, () => {
             logger.info(`Server running in ${NODE_ENV} on all interfaces (0.0.0.0:${PORT})`);
         });
