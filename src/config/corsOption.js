@@ -10,7 +10,7 @@ const corsOptions = {
     origin: function (origin, callback) {
         if (!origin) {
             if (process.env.NODE_ENV === 'development') {
-                logger.debug('No origin provided — allowing request (likely server-to-server or Postman)');
+                logger.debug('No CORS origin provided — allowing request (likely server-to-server or Postman)');
             }
             return callback(null, true);
         }
@@ -18,8 +18,8 @@ const corsOptions = {
         if (allowedOrigins.includes(origin)) {
             callback(null, true);
         } else {
-            logger.warn(`Blocked origin: ${origin} — not in allowed list`);
-            callback(new Error(`Origin ${origin} not allowed by CORS policy`));
+            logger.warn(`Blocked CORS origin: ${origin} — not in allowed list`);
+            callback(new Error(`CORS Origin ${origin} not allowed by CORS policy`));
         }
     },
     credentials: true,
@@ -28,9 +28,9 @@ const corsOptions = {
 
 function verifyCorsConfig() {
     if (allowedOrigins.length === 0) {
-        logger.warn('Warning: No allowed origins set in environment variable (CORS_ORIGINS)');
+        logger.warn('Warning: No allowed CORS origins set in environment variable (CORS_ORIGINS)');
     } else {
-        logger.info(`Allowed origins verified: ${allowedOrigins.join(', ')}`);
+        logger.info(`Allowed CORS origins verified: ${allowedOrigins.join(', ')}`);
     }
     return allowedOrigins;
 }
